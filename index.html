@@ -1,10 +1,120 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
 <body>
+
+
+<h1> Psychic game</h1>
+<p>Guess what letter I'm thinking of: </p>
+<p> I'm thinking of:<span id="computer-guess"></span>
+
+<p>Wins: <span id="wins">0</span></p>
+<p>Loses: <span id="losses">0</span></p>
+<p>Guess Left: <span id="guessesLeft">10</span></p>
+
+<p>Your guesses so far: <div id="my-guess"> </div></p>
+	<script type="text/javascript">
 	
+
+			var winsCount = 0;
+			var lossCount = 0;
+			var guesCount = 10;
+			var guessString=  " " ;		
+						
+								//Reload when these condittions are met xs
+								if (guesCount === 0 || winsCount === 10 || lossCount ===10) {
+
+									document.reload(forceGet)
+
+								};
+				
+		//on key release execute the following: 			
+		document.onkeyup = function(event) {
+
+			//populate html 
+			var win = document.getElementById("wins").innerHTML=winsCount;
+			var lose = document.getElementById("losses").innerHTML = lossCount;
+			var guess = document.getElementById("guessesLeft").innerHTML=guesCount;
+
+			// Capture User key as variable
+			var userGuess = event.key;
+
+
+			// Create random computer letter
+			var newLetter = String.fromCharCode(Math.floor(Math.random() * (25) + 65));
+			
+			var actualLetter = newLetter.toLowerCase();
+
+			var computerGuess = document.getElementById("computer-guess");
+
+				// list the computer guess 
+				computerGuess.innerHTML=actualLetter;
+
+				
+				// Append Uesr key to the page
+   				 var parent = document.getElementById('my-guess'); 
+   				 var newGroup = document.createElement("div"); 
+					newGroup.textContent = userGuess;
+				    parent.appendChild(newGroup); 
+				
+
+				    //scoring 
+					if (userGuess === actualLetter)	{
+						console.log(actualLetter);
+						console.log(userGuess);
+						console.log("------------");
+
+
+
+						winsCount++;
+						guesCount--;
+
+					
+
+					} else if (userGuess !== actualLetter)	 {
+						console.log(actualLetter);
+						console.log(userGuess);
+						console.log("------------");						
+
+						
+
+							guesCount--;
+							lossCount++
+
+
+							}
+
+					
+};
+				
+
+
+				
+
+
+
+			
+				
+					
+				
+
+
+
+
+
+
+//1. Take home test 2. onsite interview
+// 
+
+	</script>
+
+
+
 </body>
 </html>
+
+
+
