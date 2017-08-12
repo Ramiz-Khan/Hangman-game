@@ -13,7 +13,7 @@
 
 <p>Wins: <span id="wins">0</span></p>
 <p>Loses: <span id="losses">0</span></p>
-<p>Guess Left: <span id="guessesLeft">10</span></p>
+<p>Guesses Left: <span id="guessesLeft">10</span></p>
 
 <p>Your guesses so far: <div id="my-guess"> </div></p>
 	<script type="text/javascript">
@@ -22,15 +22,9 @@
 			var winsCount = 0;
 			var lossCount = 0;
 			var guesCount = 10;
-			var guessString=  " " ;		
+			var guessString=  "_" ;		
 						
-								//Reload when these condittions are met 
-								if (guesCount === 0 || winsCount === 10 || lossCount ===10) {
 
-									window.location.reload();
-
-
-								};
 				
 		//on key release execute the following: 			
 		document.onkeyup = function(event) {
@@ -87,6 +81,14 @@
 
 
 							}
+
+								//Reload when these condittions are met 
+								if (guesCount === 0 || winsCount === 10 || lossCount ===10) {
+
+									location.reload();
+
+								};
+
 
 					
 };
